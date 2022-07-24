@@ -1,8 +1,6 @@
-import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn import tree
-import seaborn as sns
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import accuracy_score
@@ -23,27 +21,22 @@ df.drop('id', axis=1, inplace=True)
 Gender = {'Male':0,
         'Female':1}
 
-# apply using map
 df['Gender'] = df['Gender'].map(Gender)
 
 CustomerType= {'Loyal Customer':0,'disloyal Customer':1}
 
-# apply using map
 df['Customer Type'] = df['Customer Type'].map(CustomerType)
 
 TypeofTravel= {'Business travel':0,'Personal Travel':1}
 
-# apply using map
 df['Type of Travel'] = df['Type of Travel'].map(TypeofTravel)
 
 Class= {'Business':0,'Eco':1,'Eco Plus':2}
 
-# apply using map
 df['Class'] = df['Class'].map(Class)
 
 satisfaction= {'neutral or dissatisfied':0,'satisfied':1}
 
-# apply using map
 df['satisfaction'] = df['satisfaction'].map(satisfaction)
 
 X = df.iloc[:, 0:23].values

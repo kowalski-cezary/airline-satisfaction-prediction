@@ -1,10 +1,5 @@
-import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import numpy as np
-import statsmodels.api as sm
-from sklearn.linear_model import LogisticRegression
-import seaborn as sns
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import accuracy_score
@@ -29,27 +24,22 @@ df.drop('id', axis=1, inplace=True)
 Gender = {'Male':0,
         'Female':1}
 
-# apply using map
 df['Gender'] = df['Gender'].map(Gender)
 
 CustomerType= {'Loyal Customer':0,'disloyal Customer':1}
 
-# apply using map
 df['Customer Type'] = df['Customer Type'].map(CustomerType)
 
 TypeofTravel= {'Business travel':0,'Personal Travel':1}
 
-# apply using map
 df['Type of Travel'] = df['Type of Travel'].map(TypeofTravel)
 
 Class= {'Business':0,'Eco':1,'Eco Plus':2}
 
-# apply using map
 df['Class'] = df['Class'].map(Class)
 
 satisfaction= {'neutral or dissatisfied':0,'satisfied':1}
 
-# apply using map
 df['satisfaction'] = df['satisfaction'].map(satisfaction)
 
 X = df.iloc[:, 0:23].values
@@ -70,8 +60,10 @@ from sklearn.ensemble import RandomForestClassifier
 forest = RandomForestClassifier(n_estimators = 100, criterion = 'gini', random_state = 0)
 print(forest.fit(X_train, Y_train))
 print('[0]Logistic Regression Training Accuracy:', forest.score(X_train, Y_train))
+
 #Check Accuracy precision, recall, f1-score
 print( classification_report(Y_test, forest.predict(X_test)) )
+
 #Another way to get the models accuracy on the test data
 print(F'Accuracy:',accuracy_score(Y_test, forest.predict(X_test)))
 print(F'Precision:', precision_score(Y_test, forest.predict(X_test)))

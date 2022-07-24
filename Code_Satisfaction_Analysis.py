@@ -1,15 +1,8 @@
-import matplotlib
-import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
-import sklearn
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn import ensemble
-from sklearn.metrics import accuracy_score
 import warnings
 warnings.filterwarnings("ignore")
-#%matplotlib inline
 
 data = pd.read_csv("C:/Users/Czarek/Documents/train.csv")
 data.shape
@@ -50,7 +43,6 @@ f, ax = plt.subplots(1, 2, figsize = (20,5))
 sns.histplot(x = "Age",  palette = "YlOrBr",stat='probability', data = data,ax = ax[0])
 sns.histplot(x = "Flight Distance",  palette = "YlOrBr", stat='probability',data = data,ax = ax[1])
 plt.show()
-
 
 sns.countplot(x = 'Class', hue = 'satisfaction', palette = "YlOrBr", data = data)
 plt.show()
